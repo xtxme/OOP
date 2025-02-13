@@ -1,0 +1,52 @@
+Design code in java
+
+1. design and implement a class for an RPG character
+think about
+1.1 how and where to store data
+1.2 what operations are needed
+1.3 how and where to compute information
+
+1.1 การเก็บข้อมูล (How and where to store data) Attributes;
+1.2 การดำเนินการ (What operations are needed) Methods;
+Class Design
+1. RPGCharacter
+Attributes:
+- level
+- maxHP
+- maxMana
+- currentHP
+- currentMana
+- baseSpeed
+- currentSpeed
+- forSword
+- forShield
+Methods:
+- levelUp(): เพิ่มเลเวลของตัวละครและคำนวณค่าสเตตัสใหม่
+- useSword(Sword sword): ใส่ดาบและปรับค่าความเร็วในการวิ่ง
+- useShield(Shield shield): ใส่โล่และปรับความเร็วในการวิ่ง
+- takeDamage(double damage): ลดค่า HP ถ้าส่วมใส่โล่ให้พิจารณาการป้องก่อนแล้วค่อยลด
+- recalStats(): คำนวณค่าสเตตัสใหม่
+- adjustSpeed(): ปรับความเร็วในการวิ่งตามอุปกรณ์ที่สวมใส่
+2. Equipment (abstract class)
+Attributes:
+- baseEffect: ใช้เก็บค่าพื้นฐานของอุปกรณ์ ถ้าเป็นดาบ หมายถึงดาเมจพื้นฐานที่อุปกรณ์สามารถสร้างได้, ถ้าเป็นโล่ หมายถึงค่าการป้องกันพื้นฐานที่อุปกรณ์สามารถลดความเสียหายได้
+- level: ใช้เก็บระดับของอุปกรณ์ ยิ่งเลเวลสูงขึ้นค่าดาเมจหรือการป้องกันของอุปกรณ์ก็จะสูงขึ้นด้วย
+- baseSpeedforDecrease: ใช้เก็บค่าที่จะบอกว่า อุปกรณ์นี้สามารถลดความเร็วในการเคลื่อนที่ของตัวละครได้เท่าไร โดยที่เป็นค่าพื้นฐานก่อนนำไปคำนวณร่วมกับเลเวล
+Methods 
+- levelUp(): เพิ่มระดับของอุปกรณ์
+- calEffect(): คำนวณดาเมจหรือการป้องกัน
+- calSpeedDecrease(): คำนวณค่าที่ลดความเร็ว
+3. Sword (extends Equipment)
+- getDamage():คำนวณดาเมจของดาบ
+4. Shield (extends Equipment)
+- getDefense():คำนวณการป้องกันของโล่
+
+1.3 การคำนวณข้อมูล (How and where to compute information)
+	- Max HP = 100 + 10 * level ( HP เพิ่มขึ้น 10 หน่วยทุกครั้งที่ตัวละครเลเวลเพิ่มขึ้น 1 ระดับ)
+	- Max Mana = 100 + 2 * level (Mana เพิ่มขึ้น 2 หน่วยทุกครั้งที่ตัวละครเลเวลเพิ่มขึ้น 1 ระดับ)
+	- currentSpeed = baseSpeed * (190 + 0.03 * level) (ค่าความเร็วตั้งต้น)
+	- currentSpeed = Math.max(0, baseSpeed * (90 + 0.13 * level) - speedPenalty) (ความเร็วตัวละครตอนใส่อุปกรณ์)
+	- Sword Damage: baseEffect * (7 + 0.13 * level) (ดาเมจเพิ่มขึ้นตาม baseEffect และเลเวลของดาบ)
+	- Shield Defense: baseEffect * (7 + 0.13 * level) (ค่าการป้องกันเพิ่มขึ้นตาม baseEffect และเลเวลของโล่)
+	- calSpeedDecrease from Equipment: baseSpeedDecrease * (190 + 0.13 * level) (ความเร็วจะลดลงตาม baseSpeedDecrease และเลเวลของอุปกรณ์)
+	- Remaining HP after damage: currentHP = Math.max(0, currentHP - reducedDamage) (ค่าความเสียหายลดลงตามค่าป้องกันจากโล่ถ้าติดตั้ง และ ค่า currentHP จะถูกลดลงจากความเสียหายที่เหลือ)

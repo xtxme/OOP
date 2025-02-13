@@ -1,0 +1,78 @@
+Lab04
+ข้อที่ 1.) Design interface(s) to represent at least two types of RPG characters
+	- สายเวทมนตร์ (Mage) ตัวละครที่เน้นการโจมตีระยะไกลด้วยเวทมนตร์ มีพลังโจมตีสูงแต่ค่าพลังชีวิตและเกราะป้องกันต่ำ
+	- สายป้องกัน (Tank) ตัวละครแนวหน้าที่เน้นการดึงความสนใจของศัตรูและรับดาเมจแทนเพื่อนร่วมทีม
+
+Character Interface
+1.1 Instance variables
+- name: ชื่อของตัวละคร
+- class: ประเภทตัวละคร (Mage/Tank)
+- level: แสดงเลเวลปัจจุบันของตัวละคร
+- maxHP: ค่า HP สูงสุดของตัวละคร
+- maxMana: ค่า Mana สูงสุดของตัวละคร
+- currentHP: ค่า HP ปัจจุบันของตัวละคร
+- currentMana: ค่า Mana ปัจจุบันของตัวละคร
+- ATKPower: ค่าพลังโจมตีของตัวละคร
+- DEF: ค่าการป้องกันของตัวละคร
+- SPD: ความเร็วและการหลบหลีกของตัวละคร
+- Ability: ความสามารถที่ตัวละครสามารถใช้ได้
+- forSword: ตอนใส่อุปกรณ์เสริมดาบ
+- forShield: ตอนใส่อุปกรณ์เสริมโล่
+1.2 Instance methods
+- levelUp(): เพิ่มเลเวลของตัวละครและคำนวณค่าสเตตัสใหม่
+- recalStats(): คำนวณค่าสเตตัสใหม่
+- void ATK(target): ทำการโจมตีพื้นฐานกับตัวละครอื่น
+- void useAbility(String ability, target): ใช้ความสามารถพิเศษกับตัวละครอื่น
+- void equipAccessory(Accessory accessory): สวมใส่อุปกรณ์เสริมให้กับตัวละคร
+- void heal(int amount): ฟื้นฟูคะแนนสุขภาพ
+- void regainMana(int amount): ฟื้นฟูคะแนนมานา
+- recalStats(): Recalculate derived stats like maxHP, maxMana, etc.
+- adjustSpeed(): Adjust run speed based on equipped items.
+
+Extend character types
+1. Mage Interface
+1.1 Instance variables
+- elementalMagic:ธาตุของนักเวทย์
+1.2 Instance methods
+- castSpell(spellName): คาถาที่ตัวละครสามารถใช้ได้และผลของคาถาเหล่านั้น
+- calManaCost(spellName): คำนวณค่ามานาสำหรับการร่ายเวทมนตร์หนึ่ง ๆ
+- amplifySpell(spellName): เพิ่มพลังโจมตีของคาถาชั่วคราว
+
+2. Tank Interface
+2.1 Instance variables
+- armorStamina: ความทนทานของเกราะ
+2.2 Instance methods
+- fortifyArmor(int amount): เพิ่มความทนทานของค่าการป้องกันชั่วคราว
+- absorbDamage(Character ally): ดูดซับความเสียหายแทนเพื่อนรวมทีม
+-  repairArmor(int amount):ซ่อมแซมค่าการป้องกันในระหว่างหรือหลังการต่อสู้
+
+ข้อที่ 2.) Design an interface to show at least two types of accessories.
+	- ดาบ (Sword): เพิ่มค่าพลังโจมตี
+	- โล่ (Shield): การเพิ่มการป้องกัน
+Equipment Interface
+2.1 Instance variables
+- class : แสดงชื่อของอุปกรณ์เสริม
+- baseEffect
+- level
+- baseSpeedforDecrease
+2.2 Instance methods
+- levelUp(): เพิ่มระดับของอุปกรณ์
+- calEffect(): คำนวณดาเมจหรือการป้องกัน
+- calSpeedDecrease(): คำนวณค่าที่ลดความเร็ว
+
+Extend Equipment types
+1. Sword (extends Equipment)
+1.1 Instance variables
+- damageBonus: ค่า ATKPower ที่เพิ่มขึ้นจากดาบ 
+1.2 Instance methods
+- levelUp(): เพิ่มระดับของดาบและเพิ่มค่าพลังโจมตี
+- getDamage():คำนวณดาเมจของดาบ
+2. Shield (extends Equipment)
+2.1 Instance variables
+- defenseBonus: ค่า DEF ที่เพิ่มขึ้นจากโล่
+2.2 Instance methods
+- levelUp(): เพิ่มระดับของโล่และเพิ่มค่าพลังโจมตี
+- getDefense():คำนวณดาเมจของโล่
+
+
+
