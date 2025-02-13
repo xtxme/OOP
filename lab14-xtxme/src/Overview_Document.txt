@@ -1,0 +1,12 @@
+จุดแข็ง
+- มีการแบ่่งหมวดหมู่ของหัวข้อชัดเจนอยู่แล้ว
+- เนื้อหาภายในเว็ปมีความชัดเจนรวมถึงมีคู่มือวิธีการใช้งานอยู่ภายในเว็ป
+
+จุดอ่อน
+- หน้าเว็ปไม่ค่อยเป็นสัดเป็นส่วน
+- ตัวเว็ปไม่น่าดึงดูดให้ใช้ เนื่องจากมีตัวหนังสือและใช้สีมากเกินไป ทำให้ผู้อ่านตาลายได้
+
+เว็ปต้นฉบับ: https://www.reg.cmu.ac.th/web/roombooking/index.php
+Dev Mode: https://www.figma.com/design/6b3kzhuWjVmMt4u91k85Yh/Untitled?node-id=0-1&m=dev&t=V098K9BXHgHkPFjF-1
+Prototype: https://www.figma.com/proto/6b3kzhuWjVmMt4u91k85Yh/Untitled?node-id=2-4&p=f&t=I7ZPLbSEeL1Fq7MD-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A4
+

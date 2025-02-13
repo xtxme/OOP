@@ -1,0 +1,77 @@
+.
+
+1. Gameplay
+    - เราจะต้องควบคุมปลาของเราให้กินปลาตัวที่เล็กกว่าเพื่อพยายามให้ตัวใหญ่ขึ้น และขึ้นสู่จุดสูงสุดของห่วงโซ่อาหาร โดยจะต้องไม่ถูกปลาที่มีขนาดใหญ่กว่ากิน
+เมื่อปลาของเรามีขนาดโตขึ้นก็สามารถกินปลาที่ใหญ่ขึ้นได้ รวมถึงเกมนี้มีการเพิ่มพลังและโบนัสที่ช่วยให้เราผ่านด่านต่าง ๆได้ง่ายขึ้น
+
+
+2. Items in game
+- Player Fish (ปลาที่เราควบคุม)
+- Other Fish (ปลาที่เราต้องกิน)
+- Fish Size and Growth
+- Score
+- Power ups and Effects (เช่น เพิ่มความเร็วหรือได้คะแนนพิเศษ)
+- Game map (ด่านต่างๆและภาพในเกม)
+- Game Controls (เช่น การเคลื่อนไหวของสิ่งต่างๆ, การกดปุ่ม, การกินปลา)
+- Button (resume, quit, continue)
+- Game States (start, playing, paused, game over)
+
+
+3. MVC
+3.1 Model
+•   Fish
+•	Player Score
+•	Fish size
+•	Current position of the fish
+•	Current map
+•	Growth level
+•	Effect and bonus
+•	Game State
+
+3.2 View
+•	The fish that we control
+•	Other fish that we must eat (NPC)
+•	The fish movement and eating
+•	Score and summary board
+•	Position of a button on the screen
+•	Background of the map
+•	Bonus score and effect
+•	Fish growth rate level bar
+
+3.3 Controller
+•	Handle player movement by updating the fish location in the model
+•	Handle other fish in the game movement
+•	Handle when press any button to the model such as continue, quit game, resume
+•	Detect action of the fish such as eating, power up, earn extra point
+•	Handle score updates to the model when fish are eaten
+
+
+4. Group items in each part
+4.1	Model
+-	PlayerFish
+Attributes: size, speed, position, growth level
+Methods: move(), eat(), grow(), applyPowerUp()
+-	OtherFish
+Attributes: size, speed, position
+Methods: move(), eat()
+-	ScoreManager
+Attributes: currentScore, highScore
+Methods: updateScore(), resetScore()
+-	LevelUp
+-	PowerUp
+
+4.2	View
+-	GameRenderer
+Methods: renderBackground(), renderFish(), renderOtherFish()
+-	Display
+Methods: displayScore(), displayLevelProgress()
+-	UI
+Methods: renderButtons(), showMenu(), updateGrowthBar()
+
+4.3	Controller
+- PlayerController
+      Methods: handleMovement(), detectAction()
+- GameController
+	Methods: startGame(), pauseGame(), resumeGame(), endGame()
+
+
