@@ -1,0 +1,65 @@
+Hw2
+
+1. Give a complete description of Air Purifier class
+1.1 what should be instance variables? (Attributes object)
+	- SuitableArea: ขนาดห้องที่แนะนำ
+	- noiseLevel: ระดับเสียงของเครื่องฟอกอากาศ
+	- windLevel: ระดับความแรงลม
+	- brand: ยี่ห้อของเครื่องฟอกอากาศ
+	- weight: น้ำหนักเครื่องฟอกอากาศ
+	- particleCADR: อัตราการสร้างอากาศบริสุทธิ์
+	- model: รหัสรุ่น
+	- filterLife:จำนวนชั่วโมงของอายุการใช้งานไส้กรองที่เหลืออยู่
+1.2 what should be instance methods?
+	- nowOn(): เปิดเครื่องฟอกอากาศ
+	- nowOff(): ปิดเครื่องฟอกอากาศ
+	- getDetails(): คืนค่ารายละเอียดของรุ่น ชื่อแบรนด์ น้ำหนัก
+	- setWindLevel(int level): ตั้งค่าระดับพลังงานลมตามที่ระบุ
+	- setNoiseLevel(int level): ตั้งค่าระดับของเสียงตามค่าที่ระบุ
+	- measureAQI(): วัดค่า AQI 
+
+1.3 what should be class variables?
+	- maxWindLevel: ระดับลมสูงสุดของตัวเครื่อง
+	- maxNoiseLevel: ระดับเสียงสูงสุดของตัวเครื่อง
+	- transferFilterLife: ระยะเวลาที่ควรเปลี่ยนไส้กรอง
+
+1.4 what should be class methods?
+	- getTransferFilterHours(): เอาไว้คืนค่าจำนวนชั่วโมงที่ใช้งานไส้กรอง
+	- getWindLevels(): คืนค่ารายการระดับลมที่ใช้งานได้
+	- getNoiseLevels(): คืนค่ารายการระดับเสียงที่ใช้งานได้
+
+2. for each method proposed above, how do you plan to implement it?
+- give an overview of the computation
+	- what's needed as inputs?
+	- what's to be returned?
+
+	- nowOn()
+		-input: -
+		-output: prints "Air Purifier is ON."
+	- nowOff()
+		-input: -
+		-output: "Air Purifier is OFF."
+	- getDetails(): คืนค่ารายละเอียดของรุ่น ชื่อแบรนด์ น้ำหนัก
+		-input: -
+		-output: คืนค่ารายละเอียดของรุ่น ชื่อแบรนด์ น้ำหนัก ในรูปแบบของ string
+	- setWindLevel(int level)
+		-input: ตัวเลขระดับความแรงลมที่ต้องการ
+		-output: อัพเดตระดับความแรงลมให้เป็นค่าที่กำหนด
+	- setNoiseLevel(int level)
+		-input: ตัวเลขระดับเสียงรบกวนของเครื่องที่ต้องการ
+		-output: อัพเดตระดับเสียงรบกวนให้เป็นค่าที่กำหนด
+	- measureParticle_CADR(aqi)
+		-input: -
+		-output: คืนค่า AQI แบบสุ่มระหว่าง 0 ถึง 300
+	- getTransferFilterHours(): เอาไว้คืนค่าจำนวนชั่วโมงที่ใช้งานไส้กรอง
+		-input: -
+		-output: คืนค่าจำนวนชั่วโมงที่ใช้งานไส้กรอง
+	- getWindLevels()
+		-input: -
+		-output: คืนค่าในรูปแบบของ list of integers ตั้งแต่ 1-5
+	- getNoiseLevels()
+		-input: -
+		-output: คืนค่าในรูปแบบของ list of integers ตั้งแต่ 1- 3
+
+
+
