@@ -1,0 +1,234 @@
+1. write a specification for each of the methods you implemented in the last lab
+-Preconditions: ข้อกำหนดที่ต้องเป็นจริงก่อนที่จะเรียกใช้
+-Postconditions: ผลลัพธ์หลังจากเรียกใช้
+-Side Effects:
+
+Character Class Methods
+1. levelUp()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อน
+-Postconditions: 
+	- level ของตัวละครเพิ่มขึ้น 1
+	- ค่าสถานะ maxHP, maxMana, ATKPower, DEF, SPD จะถูกอัปเดตตามระดับใหม่
+	- currentHP และ currentMana จะถูกรีเซ็ตให้เท่ากับ maxHP และ maxMana
+-Side Effects: พิมพ์ข้อความแจ้งว่าเลเวลตัวละครเพิ่มขึ้นและค่าสถานะถูกอัปเดตแล้ว 
+
+2. recalStats()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อน
+-Postconditions: 
+	- level ของตัวละครต้องมีค่ามากกว่า 0
+	- ค่าสถานะ maxHP, maxMana, ATKPower, DEF, SPD ถูกอัปเดตตามระดับปัจจุบัน
+	- currentHP และ currentMana จะถูกรีเซ็ตให้เท่ากับ maxHP และ maxMana
+-Side Effects: พิมพ์ข้อความแจ้งค่าสถานะที่ถูกอัปเดต
+
+3. adjustSpeed()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อน
+-Postconditions: 
+	- level ของตัวละครต้องมีค่ามากกว่า 0
+	- ค่าสถานะ maxHP, maxMana, ATKPower, DEF, SPD ถูกอัปเดตตามระดับปัจจุบัน
+	- currentHP และ currentMana จะถูกรีเซ็ตให้เท่ากับ maxHP และ maxMana
+-Side Effects: พิมพ์ข้อความแจ้งค่าสถานะที่ถูกอัปเดต
+
+4. equipAccessory(Accessory accessory)
+-Preconditions: มีการส่งค่าอุปกรณ์เสริม Accessory ที่ไม่ใช่ค่า null เข้ามา
+-Postconditions: 
+	- กำหนดให้ตัวละครสวมใส่อุปกรณ์เสริมใหม่ที่ส่งเข้ามา
+	- SPD จะถูกปรับใหม่
+-Side Effects: พิมพ์ข้อความแจ้งว่าตัวละครอะไรสวมใส่อุปกรณ์อะไร
+
+5. ATK(Character target)
+-Preconditions: มีการส่งค่าอุปกรณ์เสริม Accessory ที่ไม่ใช่ค่า null เข้ามา
+-Postconditions: 
+	- กำหนดให้ตัวละครสวมใส่อุปกรณ์เสริมใหม่ที่ส่งเข้ามา
+	- SPD จะถูกปรับใหม่
+-Side Effects: พิมพ์ข้อความแจ้งว่าตัวละครอะไรสวมใส่อุปกรณ์อะไร
+
+6.  useAbility(String ability, Character target)
+-Preconditions: 
+	- ability ต้องเป็นชื่อสกิลที่ตัวละครที่เรียกใช้ต้องการใช้
+	- target เป็นตัวละครที่อยู่ในเกมคู่ต่อสู้
+	- สามารถเรียกใช้ได้เฉพาะ Mage
+-Postconditions: 
+	- กรณี currentMana ของตัวละครที่เรียกใช้งานมีค่า >= 10 จะทำให้ currentHP ของตัวละครเป้าหมายจะลดลงโดยเท่ากับ ATKPower * 2 และ currentMana ของตัวละครที่เรียกใช้จะลดลง 10 และพิมพ์ข้อความแจ้งแสดงการโจมตีสำเร็จ
+	- กรณี currentMana ของตัวละครที่เรียกใช้น้อยกว่า 10 ไม่มีการเปลี่ยนแปลงใด ๆ ของสถานะของตัวละครที่จะโจมตีและถูกโจมตี และ พิมพ์ข้อความแจ้งแสดงการใช้สกิลล้มเหลวเพราะมานาไม่พอ
+-Side Effects: 
+	- currentHP ของ target ถูกลด
+	- currentMana ของตัวละครที่เรียกใช้ถูกลด
+
+7. getCurrentMana()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: คืนค่าค่า currentMana ของตัวละครในรูปแบบ ตัวเลขจำนวนเต็ม
+-Side Effects: ไม่มีผลกระทบ
+
+8. getCurrentHP()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: คืนค่าค่า currentHP ของตัวละครในรูปแบบ ตัวเลขจำนวนเต็ม
+-Side Effects: ไม่มีผลกระทบ
+
+9. getName()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: ค่าชื่อตัวละครของตัวละครในรูปแบบ String
+-Side Effects: ไม่มีผลกระทบ
+
+
+Extend Character Class Methods
+10. getElementalMagic()
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้เฉพาะ Mage
+-Postconditions: คืนค่า elementalMagic ในรูปแบบ String
+-Side Effects: ไม่มีผลกระทบ
+
+11. setElementalMagic(String elementalMagic)
+-Preconditions: ค่าพารามิเตอร์ elementalMagic ที่รับเข้ามาต้องเป็น String ที่ถูกและสามารถเรียกใช้ได้เฉพาะ Mage
+-Postconditions: อัปเดตค่า elementalMagic ตามค่าที่กำหนด
+-Side Effects: ไม่มีผลข้างเคียง
+
+12. castSpell(String spellName, Character target)
+-Preconditions: ตัวละครต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: ค่าชื่อตัวละครของตัวละครในรูปแบบ String
+-Side Effects: เปลี่ยนค่าในตัวแปร elementalMagic และพิมพ์ข้อความออกคอนโซลที่เปลี่ยนแปลงไป
+
+13.castSpell(String spellName, Character target)
+-Preconditions: 
+	- spellName ต้องไม่เป็น null 
+	- target ต้องไม่เป็น null
+	- ตัวละครต้องมี Mana มากพอที่จะเรียกใช้
+	- สามารถเรียกใช้ได้เฉพาะ Mage
+-Postconditions: 
+	- HP ของเป้าหมายจะลดลงตามค่าความเสียหายของสกิล
+	- Mana ของตัวละครจะลดลงตามค่าที่เซ็ทไว้
+-Side Effects: 
+	- เปลี่ยนแปลงสถานะของ currentMana ของตัวละครที่เรียกใช้
+	- เปลี่ยนแปลงสถานะของ currentHP ในเป้าหมาย
+	- พิมพ์ข้อความแจ้งว่าตัวละครใช้สกิลอะไร
+
+14. calManaCost(String spellName)
+-Preconditions: 
+	- spellName ต้องไม่เป็น null 
+-Postconditions: 
+	- หากชื่อเวทที่จะร่ายไม่ถูกต้องจะใช้ค่ามานาเริ่มต้นที่ 5 ตามที่กำหนด
+	- คืนค่าค่ามานาที่ต้องใช้ของชื่อเวทที่กำหนดเป็นจำนวนเต็ม ตามที่กำหนด
+-Side Effects: 
+	- เปลี่ยนค่าพลังของตัวละคร
+
+15. amplifySpell(String spellName)
+-Preconditions: 
+	- spellName ต้องไม่เป็น null 
+	- สามารถเรียกใช้ได้เฉพาะ Mage
+-Postconditions: 
+	- เพิ่มค่า ATKPower ขึ้น 5 หน่วย
+-Side Effects: 
+	- เปลี่ยนแปลงสถานะของตัวแปร ATKPower
+	- แสดงข้อความในคอนโซลเพื่อแจ้งว่ามีการเพิ่มพลังโจมตี
+
+16. fortifyArmor(int amount)
+-Preconditions:
+	- ค่าการป้องกัน DEF ต้องไม่ต่ำกว่า 0
+	- สามารถเรียกใช้ได้เฉพาะ Tank
+-Postconditions: 
+	- DEF ของตัวละครเพิ่มขึ้นตามค่า amount
+-Side Effects: พิมพ์ข้อความแจ้งว่าค่าการป้องกันเพิ่มขึ้น
+
+17. absorbDamage(Character ally)
+-Preconditions: 
+	- ally ต้องเป็น object ประเภท Character ที่ไม่เป็น null
+	- สามารถเรียกใช้ได้เฉพาะ Tank
+-Postconditions: 
+	- เพิ่มค่า DEF ให้ ally ให้มีค่าเป็นครึ่งหนึ่งของ DEF ของตัวละครผู้ใช้
+-Side Effects: 
+	- เปลี่ยนแปลงค่า DEF ของพันธมิตร
+	- แสดงข้อความในคอนโซลเพื่อบอกว่าตัวละครได้ดูดซับความเสียหายให้พันธมิตรแล้ว
+
+18. repairArmor(int amount)
+-Preconditions: 
+	- ค่า amount ที่รับเข้ามาต้องเป็นจำนวนเต็มและควรมากกว่า 0 
+-Postconditions: 
+	- เพิ่มค่า DEF ตามค่าที่กำหนดใน amount
+-Side Effects: 
+	- เปลี่ยนแปลงสถานะตัวแปร DEF
+	- แสดงข้อความในคอนโซลว่าตัวละครมีการซ่อมแซมเกราะและค่าปัจจุบันของ DEF
+
+Accessory Class Methods
+19. getAccessoryClass()
+-Preconditions: ตัวคลาสของอุปกรณ์ ต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: คืนค่าคลาสของอุปกรณ์ accessory เป็น String
+-Side Effects: ไม่มีผลกระทบ
+
+20. getLevel()
+-Preconditions: ตัวคลาสของอุปกรณ์ ต้องถูกสร้างขึ้นก่อนและสามารถเรียกใช้ได้ทุกเมื่อ
+-Postconditions: คืนค่า level ของอุปกรณ์
+-Side Effects: ไม่มีผลกระทบ
+
+21. levelUp()
+-Preconditions: ตัวแปรต้องมีการกำหนดค่าเริ่มต้นอยู่แล้ว
+-Postconditions: 
+	- ค่า level ของอุปกรณ์เพิ่มขึ้น 1
+	- มีการเรียกใช้งานฟังก์ชัน adjustStatsForLevelUp() เพื่อปรับสถานะตามระดับใหม่
+-Side Effects: 
+	- เปลี่ยนแปลงค่าของ level
+	- แสดงข้อความออกในคอนโซลว่าการอัพเกรดระดับของอุปกรณ์
+
+22. calSpeedDecrease()
+-Preconditions: ค่าของ baseSpeedForDecrease และ level มีการกำหนดค่าไว้ก่อนใช้งาน
+-Postconditions: 
+	- คืนค่าความเร็วที่ลดลง คำนวณจาก baseSpeedForDecrease คูณ level
+-Side Effects: 
+	- ค่าความเร็วที่ลดลงและไม่มีการเปลี่ยนแปลงสถานะภายในคลาส
+
+23. calSpeedIncrease()
+-Preconditions: ค่าของ baseSpeedForDecrease และ level มีการกำหนดค่าไว้ก่อนใช้งาน
+-Postconditions: 
+	- คืนค่าความเร็วที่เพิ่ม คำนวณจาก baseSpeedForDecrease คูณ level
+-Side Effects: 
+	- ค่าความเร็วที่เพิ่มและไม่มีการเปลี่ยนแปลงสถานะภายในคลาส
+
+
+Extend Accessory Class Methods
+24. adjustStatsForLevelUp()
+-Preconditions: 
+	- ค่าของ level มีการกำหนดไว้ก่อนทำการอัพเกรด
+	- ค่า damageBonus มีการกำหนดค่าเริ่มต้นและสามารถปรับเพิ่มค่าได้
+-Postconditions: 
+	- ค่าของ damageBonus จะเพิ่มขึ้นตามระดับ โดยเพิ่ม 5 และคูณด้วย level (Necklace)
+	-  ค่า defenseBonus จะเพิ่มขึ้นโดย 3 คูณกับlevel (Bracelets)
+	- ค่า calEffect จะถูกตั้งค่าใหม่ตามค่า damageBonus
+-Side Effects: 
+	- ค่าของ damageBonus และ calEffect จะถูกปรับเพิ่มขึ้นในสถานะของอุปกรณ์
+
+25. calEffect()
+-Preconditions: 
+	- ฟังก์ชันนี้จะถูกเรียกใช้ก็ต่อเมื่อ adjustStatsForLevelUp ทำงานเสร็จ (Necklace)
+	ฟังก์ชันนี้จะถูกเรียกใช้ก็ต่อเมื่อมีการอัพเดทค่า defenseBonus จากการ levelUp  (Bracelets)
+	- มีการคำนวณค่า damageBonus ที่ได้จากการอัพเกรดก่อน
+-Postconditions: 
+	- คืนค่าของ damageBonus (Necklace)
+	- คืนค่าการป้องกันที่เพิ่มขึ้นจาก defenseBonus ซึ่งจะถูกใช้ในการคำนวณการป้องกันจากกำไล (Bracelets)
+-Side Effects: 
+	- ไม่มีการเปลี่ยนแปลงสถานะภายในคลาสอื่นที่ไม่เกี่ยวข้องกับการคำนวณ
+
+26. levelUp()
+-Preconditions: 
+	- level มีการกำหนดค่าเริ่มต้นอยู่แล้ว
+	- มีการเรียกใช้ฟังก์ชัน adjustStatsForLevelUp เพื่ออัพเดทค่าต่างๆ (Necklace)
+	- มีการเรียกใช้ฟังก์ชัน adjustStatsForLevelUp เพื่ออัพเดตค่า defenseBonus และ calEffect (Bracelets)
+-Postconditions: 
+	- ค่า level จะเพิ่มขึ้น
+	- เรียกใช้ฟังก์ชัน adjustStatsForLevelUp เพื่อเซ็ทค่าหลังการเพิ่มระดับ
+-Side Effects: 
+	- การเพิ่มค่าของ level
+	- การปรับค่าของ damageBonus และ calEffect จากการเพิ่มระดับ
+	- แสดงข้อความในคอนโซลเพื่อแจ้งว่าการอัพเกรดเสร็จแล้ว
+
+27. getDamage()(Necklace)
+-Preconditions: 
+	- damageBonus ต้องมีการกำหนดค่าเริ่มต้นอยู่แล้ว
+-Postconditions: 
+	- คืนค่าของ damageBonus ซึ่งเป็นค่าพลังโจมตีที่เพิ่มขึ้นจากการเลื่อนระดับ
+-Side Effects: 
+	- ไม่มีการเปลี่ยนแปลงสถานะภายในคลาสเพราะว่าเป็นการคืนค่าเฉยๆ
+
+28. getDefense() (Bracelets)
+-Preconditions: 
+	- คำนวณและอัพเดตค่า defenseBonus ใน levelUp ก่อนเรียกใช้
+-Postconditions: 
+	- คืนค่าของ defenseBonus เป็นค่าการป้องกันที่เพิ่มขึ้นจากการเลื่อนระดับ
+-Side Effects: 
+	- ไม่มีการเปลี่ยนแปลงสถานะภายในคลาสเพราะว่าเป็นการคืนค่าเฉยๆ
